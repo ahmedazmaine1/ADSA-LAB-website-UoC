@@ -1,0 +1,781 @@
+/* =========================================================
+   ADSA Lab — site.css
+   Works with index.html, team.html, prof_* and ahmed_* bios,
+   and the provided script.js
+   ========================================================= */
+
+
+/* ---------- CSS Variables ---------- */
+
+:root {
+    --bg: #070707;
+    /* page background (black) */
+    --bg-elev: #1a1a1a;
+    /* elevated sections */
+    --card: #222;
+    /* cards/panels (dark gray) */
+    --soft: #333;
+    /* borders / subtle surfaces */
+    --brand-50: rgba(255, 140, 0, .08);
+    --brand-600: #ff7a00;
+    /* main orange */
+    --brand-700: #e86a00;
+    /* darker orange */
+    --text: #f5f5f5;
+    /* white text */
+    --muted: #bbbbbb;
+    /* muted gray text */
+    --line: rgba(255, 255, 255, .1);
+    --shadow: 0 10px 30px rgba(0, 0, 0, .6);
+    --radius: 14px;
+    --container: 1120px;
+    /* Avatar defaults (site-wide). Bio pages override below. */
+    --avatar-size: 220px;
+    /* default diameter for circular photos */
+    --avatar-ring: 2px solid rgba(255, 255, 255, .18);
+    --avatar-shadow: 0 6px 24px rgba(0, 0, 0, .35);
+}
+
+
+/* ---------- Reset / Base ---------- */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+textarea,
+select,
+button {
+    font: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--brand-600);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0 0 .6rem;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: clamp(28px, 5vw, 44px);
+}
+
+h2 {
+    font-size: clamp(22px, 3.5vw, 32px);
+}
+
+h3 {
+    font-size: clamp(18px, 2.6vw, 22px);
+}
+
+p {
+    margin: 0 0 .9rem;
+    color: var(--text);
+}
+
+small,
+.muted {
+    color: var(--muted);
+}
+
+
+/* ---------- Layout ---------- */
+
+.container {
+    width: min(1100px, 92vw);
+    margin-inline: auto;
+}
+
+.section {
+    padding: 64px 0;
+}
+
+.section+.section {
+    border-top: 1px solid var(--line);
+}
+
+.grid-2 {
+    display: grid;
+    gap: 36px;
+    grid-template-columns: 1.1fr 1fr;
+}
+
+@media (max-width: 900px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ---------- HERO (full background image) ---------- */
+
+.section-hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background: url("assets/photos/home2.png") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.hero-text {
+    max-width: 900px;
+    z-index: 1;
+}
+
+
+/* ---------- Buttons ---------- */
+
+.btn {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--brand-600), #3b82f6);
+    color: #061022;
+    font-weight: 700;
+    box-shadow: var(--shadow);
+    border: 1px solid transparent;
+}
+
+.btn:hover {
+    text-decoration: none;
+    filter: brightness(1.06);
+}
+
+.btn.btn-outline {
+    background: transparent;
+    border-color: var(--soft);
+    color: var(--text);
+    box-shadow: none;
+}
+
+.btn.btn-outline:hover {
+    border-color: var(--brand-600);
+    background: var(--brand-50);
+}
+
+
+/* ---------- Skip link ---------- */
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.skip-link:focus {
+    position: fixed;
+    left: 16px;
+    top: 16px;
+    width: auto;
+    height: auto;
+    padding: 8px 12px;
+    background: #111827;
+    border: 1px solid var(--brand-600);
+    border-radius: 6px;
+    z-index: 9999;
+}
+
+
+/* =========================================================
+     HEADER / NAV
+     ========================================================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 9000;
+    background: rgba(11, 16, 32, .7);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: inherit;
+}
+
+.brand:hover {
+    text-decoration: none;
+}
+
+.brand-logo {
+    width: 34px;
+    height: 34px;
+}
+
+.brand-text strong {
+    display: block;
+    font-weight: 800;
+    letter-spacing: .02em;
+}
+
+.brand-text small {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: -2px;
+}
+
+.site-nav {
+    margin-left: auto;
+}
+
+.nav-toggle {
+    display: none;
+    appearance: none;
+    background: transparent;
+    border: 1px solid var(--soft);
+    color: var(--text);
+    padding: 8px 10px;
+    border-radius: 10px;
+}
+
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 12px;
+}
+
+.nav-menu a {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 10px;
+    color: var(--text);
+}
+
+.nav-menu a:hover {
+    background: var(--brand-50);
+    text-decoration: none;
+}
+
+.nav-menu a.is-active,
+.nav-menu a[aria-current="page"] {
+    background: linear-gradient(135deg, var(--brand-600), #3b82f6);
+    color: #081020;
+    font-weight: 700;
+}
+
+@media (max-width: 820px) {
+    .nav-toggle {
+        display: inline-block;
+    }
+    .nav-menu {
+        position: absolute;
+        right: 16px;
+        top: 58px;
+        background: var(--bg-elev);
+        border: 1px solid var(--soft);
+        border-radius: 14px;
+        padding: 10px;
+        display: none;
+        flex-direction: column;
+        min-width: 180px;
+        box-shadow: var(--shadow);
+    }
+    .nav-menu.show {
+        display: flex;
+    }
+}
+
+
+/* =========================================================
+     HOME HERO (index.html)
+     ========================================================= */
+
+.section-hero .lead {
+    color: var(--muted);
+}
+
+.hero-visual {
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--soft);
+    box-shadow: var(--shadow);
+}
+
+.hero-visual figcaption {
+    color: var(--muted);
+    font-size: .9rem;
+    padding: .4rem .75rem;
+    border-top: 1px solid var(--line);
+    background: rgba(0, 0, 0, .18);
+}
+
+.cta-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.typed {
+    border-right: 2px solid currentColor;
+    padding-right: 4px;
+}
+
+
+/* =========================================================
+     PEOPLE / TEAM (team.html)
+     ========================================================= */
+
+.people-page #people {
+    position: relative;
+    padding-top: 64px;
+}
+
+.people-page #people-title {
+    text-align: center;
+    font-size: clamp(28px, 4.6vw, 40px);
+    margin-bottom: 32px;
+    position: relative;
+}
+
+.people-page #people-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    margin: 10px auto 0;
+    background: var(--brand-600);
+    border-radius: 2px;
+}
+
+
+/* Rows */
+
+.people-row {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: 1fr 1fr;
+    list-style: none;
+    margin: 14px 0 36px;
+    padding: 0;
+}
+
+@media (max-width: 780px) {
+    .people-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.person {
+    display: grid;
+    grid-template-columns: 92px auto;
+    gap: 16px;
+    align-items: center;
+    background: linear-gradient(180deg, rgba(255, 255, 255, .02), rgba(0, 0, 0, .02));
+    border: 1px solid var(--soft);
+    border-radius: var(--radius);
+    padding: 16px;
+    position: relative;
+}
+
+.person .name {
+    font-weight: 800;
+    letter-spacing: .01em;
+}
+
+.person .position {
+    color: var(--brand-600);
+    font-weight: 700;
+}
+
+
+/* Circular thumbnail fed by data-photo (JS sets bg-image) */
+
+.thumb[data-photo] {
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid rgba(255, 255, 255, .9);
+    box-shadow: 0 0 0 3px rgba(15, 23, 42, .25);
+}
+
+
+/* Clickable whole card helper (anchor inside card) */
+
+.stretched-link {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    z-index: 0;
+}
+
+
+/* =========================================================
+     BIO PAGES (prof_*.html, ahmed_al_marouf.html)
+     ========================================================= */
+
+
+/* Make ONLY bio pages bigger: set the desired circle size here */
+
+.people-page {
+    --avatar-size: 300px;
+}
+
+
+/* change this value to grow/shrink */
+
+
+/* Bio hero layout */
+
+.bio-hero {
+    padding-top: 48px;
+}
+
+.bio-wrap {
+    display: grid;
+    gap: 28px;
+    /* left column matches the circular photo's diameter */
+    grid-template-columns: var(--avatar-size) 1fr;
+    align-items: flex-start;
+}
+
+@media (max-width: 880px) {
+    .bio-wrap {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Circular photo container (the clip) */
+
+.bio-photo {
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    border-radius: 50%;
+    /* perfect circle */
+    overflow: hidden;
+    /* crop the image to the circle */
+    border: var(--avatar-ring);
+    box-shadow: var(--avatar-shadow);
+    background: #111;
+    /* fallback color while image loads */
+    flex: 0 0 auto;
+    line-height: 0;
+    /* remove inline gaps */
+}
+
+
+/* The image fills the circle and centers the face */
+
+.bio-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* fill without distortion */
+    object-position: center;
+    display: block;
+}
+
+
+/* Text styles */
+
+.bio-text h1 {
+    margin: 0 0 6px;
+}
+
+.bio-role {
+    color: var(--brand-600);
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+
+/* Quick facts list */
+
+.bio-meta {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px;
+    border: 1px solid var(--soft);
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, .02), rgba(0, 0, 0, .02));
+}
+
+.bio-meta li {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+}
+
+.bio-meta li:last-child {
+    border-bottom: none;
+}
+
+
+/* Actions under bio */
+
+.bio-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+
+/* Responsive: slightly smaller avatars on narrow screens */
+
+@media (max-width: 992px) {
+    .people-page {
+        --avatar-size: 220px;
+    }
+    .bio-wrap {
+        grid-template-columns: var(--avatar-size) 1fr;
+    }
+}
+
+
+/* =========================================================
+     NEWS (index)
+     ========================================================= */
+
+.news-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 12px;
+}
+
+.news-item {
+    padding: 12px 14px;
+    border: 1px solid var(--soft);
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, .02), rgba(0, 0, 0, .02));
+}
+
+.news-item time {
+    color: var(--muted);
+    margin-right: 8px;
+}
+
+
+/* =========================================================
+     PUBLICATIONS (index)
+     ========================================================= */
+
+.pub-controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.pub-controls label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.pub-controls select,
+.pub-controls input[type="search"] {
+    background: #0d1530;
+    color: var(--text);
+    border: 1px solid var(--soft);
+    padding: 8px 10px;
+    border-radius: 10px;
+}
+
+.pub-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+}
+
+.pub-item {
+    padding: 12px 14px;
+    border: 1px solid var(--soft);
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, .02), rgba(0, 0, 0, .02));
+}
+
+
+/* =========================================================
+     CONTACT (index)
+     ========================================================= */
+
+.contact-form {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.contact-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background: #0d1530;
+    color: var(--text);
+    border: 1px solid var(--soft);
+    border-radius: 10px;
+    padding: 10px 12px;
+    resize: vertical;
+}
+
+.contact-form button {
+    width: fit-content;
+}
+
+.contact-form .form-status {
+    color: #10b981;
+    font-weight: 700;
+}
+
+@media (max-width: 760px) {
+    .contact-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+     FOOTER
+     ========================================================= */
+
+.site-footer {
+    border-top: 1px solid var(--line);
+    background: rgba(0, 0, 0, .2);
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 18px 0;
+}
+
+.footer-meta {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: var(--muted);
+}
+
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 12px;
+}
+
+.social-links a {
+    display: inline-block;
+    padding: 6px 10px;
+    border: 1px solid var(--soft);
+    border-radius: 999px;
+}
+
+.social-links a:hover {
+    background: var(--brand-50);
+    text-decoration: none;
+}
+
+
+/* =========================================================
+     ACCESSIBILITY / FOCUS
+     ========================================================= */
+
+ :focus-visible {
+    outline: 2px solid var(--brand-600);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+
+/* =========================================================
+     UTILITIES
+     ========================================================= */
+
+.lead {
+    font-size: 1.08rem;
+    color: var(--muted);
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.is-active {
+    background: var(--brand-50);
+    border-radius: 10px;
+}
+
+.pill {
+    display: inline-block;
+    padding: 6px 10px;
+    border: 1px solid var(--soft);
+    border-radius: 999px;
+}
