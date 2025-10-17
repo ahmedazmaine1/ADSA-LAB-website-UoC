@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Team — ADSA Lab</title>
+    <title>DANSA Lab — Data and Network Sciences & Applications Lab</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="assets/css/site.css" />
@@ -13,33 +13,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 
-
-<body class="people-page">
+<body>
     <a class="skip-link" href="#main">Skip to content</a>
 
+    <!-- HEADER -->
     <header class="site-header" role="banner">
         <div class="container header-inner">
-            <a class="brand" href="index.html#home" aria-label="ADSA Lab Home">
-                <img src="assets/photos/adsa_logo3.png" alt="ADSA Lab Logo" class="brand-logo" />
-                <span class="brand-text">
-                <strong>Advanced Database Systems &amp; Applications (ADSA) Lab</strong>
-          
-        </span>
+            <a class="brand" href="#home" aria-label="DANSA Lab Home" data-nav>
+                <img src="assets/photos/Logo_DANSA-Photoroom.png" alt="ADSA Lab Logo" class="brand-logo" />
+                <span class="brand-text"><strong>Data and Network Sciences  &amp; Applications (DANSA) Lab</strong></span>
             </a>
 
             <nav class="site-nav" role="navigation" aria-label="Primary">
-                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menu</button>
-                <ul id="nav-menu" class="nav-menu">
-                    <li><a href="index.html#home">Home</a></li>
-                    <li><a href="team.html" aria-current="page">Team</a></li>
-                    <li><a href="index.html#news">News</a></li>
-                    <li><a href="index.html#publications">Publications</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+                <button id="menu-icon" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+                <ul id="nav-menu" class="nav-menu navbar">
+                    <li><a href="#home" data-nav aria-current="page">Home</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="#news" data-nav>News</a></li>
+                    <li><a href="publication.html">Publications</a></li>
+                    <li><a href="#contact" data-nav>Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-
     <main id="main">
         <section id="people" class="section" aria-labelledby="people-title">
             <div class="container">
@@ -95,7 +91,7 @@
                     <li class="person">
                         <div class="thumb" data-photo="assets/photos/Annette_John.png"></div>
                         <div>
-                            <div class="name">Anette John</div>
+                            <div class="name">Annette John</div>
                             <div class="position">M.Sc. Student</div>
                             <a class="stretched-link" href="Annette_John.html" aria-label="Open biography of Annette John "></a>
                     </li>
@@ -181,7 +177,7 @@
     <footer class="site-footer " role="contentinfo ">
         <div class="container footer-inner ">
             <div>
-                <strong>ADSA Lab</strong>
+                <strong>DANSA Lab</strong>
                 <div class="footer-meta ">
                     <span>&copy; <span id="year "></span></span>
                     <span>•</span>
@@ -189,11 +185,7 @@
                 </div>
             </div>
 
-            <ul class="social-links " aria-label="Social links ">
-                <li><a href="# " target="_blank " rel="noopener ">Google Scholar</a></li>
-                <li><a href="# " target="_blank " rel="noopener ">DBLP</a></li>
-                <li><a href="# " target="_blank " rel="noopener ">GitHub</a></li>
-            </ul>
+
         </div>
     </footer>
 

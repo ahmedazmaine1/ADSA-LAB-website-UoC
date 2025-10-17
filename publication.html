@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Publications — DANSA Lab</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/site.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <header class="site-header" role="banner">
+        <div class="container header-inner">
+            <a class="brand" href="index.html#home" aria-label="DANSA Lab Home">
+                <img src="assets/photos/Logo_DANSA-Photoroom.png" alt="DANSA Lab Logo" class="brand-logo" />
+                <span class="brand-text">
+          <strong>Data and Network Sciences  &amp; Applications (DANSA) Lab</strong>
+        </span>
+            </a>
+
+            <nav class="site-nav" role="navigation" aria-label="Primary">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+          Menu
+        </button>
+                <ul id="nav-menu" class="nav-menu">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="index.html#news">News</a></li>
+                    <li><a href="publication.html" class="is-active">Publications</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container">
+            <h2>Publications</h2>
+
+            <!-- =======================
+           Prof. Reda Alhajj
+           ======================= -->
+            <section>
+                <h3>Prof. Reda Alhajj and Prof. Jon G. Rokne</h3>
+                <ul id="reda-pubs" class="pub-list"></ul>
+                <button id="reda-more" class="btn btn-outline">See more</button>
+            </section>
+
+            <!-- =======================
+           Prof. Jon Rokne (Google Scholar)
+           ======================= -->
+            <section id="rokne-section">
+                <h3>Prof. Jon Rokne (Google Scholar)</h3>
+                <ul id="rokne-list" class="pub-list"></ul>
+                <button id="rokne-more" class="btn btn-outline" style="display:none">
+          See more
+        </button>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <strong>DANSA Lab</strong> © <span id="year"></span>
+        </div>
+    </footer>
+
+    <!-- Keep Reda Alhajj + base scripts -->
+    <script src="script.js"></script>
+
+    <!-- Lightweight Rokne script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", async() => {
+                    const section = document.getElementById("rokne-section");
+                    const list = document.getElementById("rokne-list");
+                    const moreBtn = document.getElementById("rokne-more");
+                    if (!list) return;
+
+                    list.innerHTML = "<li>Loading Google Scholar publications…</li>";
+
+                    try {
+                        const res = await fetch("/api/pubs/rokne");
+                        const data = await res.json();
+
+                        // Hide if SerpAPI key invalid or no publications
+                        if (!data.ok || !Array.isArray(data.pubs) || data.pubs.length === 0) {
+                            console.warn("Jon Rokne section hidden – no SerpAPI data available.");
+                            section.style.display = "none";
+                            return;
+                        }
+
+                        const pubs = data.pubs;
+                        renderList(pubs.slice(0, 5));
+
+                        // “See more” button
+                        if (moreBtn) {
+                            moreBtn.style.display = pubs.length > 5 ? "inline-flex" : "none";
+                            moreBtn.onclick = () => {
+                                renderList(pubs);
+                                moreBtn.style.display = "none";
+                            };
+                        }
+                    } catch (err) {
+                        console.error("Jon Rokne fetch error:", err);
+                        section.style.display = "none";
+                    }
+
+                    function renderList(items) {
+                        list.innerHTML = items
+                            .map(
+                                (p) => `
+              <li class="pub-item">
+                <strong>${p.title}</strong>
+                ${p.authors ? ` — <span class="muted">${p.authors}</span>` : ""}
+                ${p.year ? ` (${p.year})` : ""}
+                ${
+                  p.url
+                    ? ` · <a href="${p.url}" target="_blank" rel="noopener">Link</a>`
+                    : ""
+                }
+              </li>`
+          )
+          .join("");
+      }
+    });
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

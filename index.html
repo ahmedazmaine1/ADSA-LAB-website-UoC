@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ADSA Lab — Advanced Database Systems & Applications</title>
+    <title>DANSA Lab — Data and Network Sciences & Applications Lab</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="assets/css/site.css" />
@@ -19,20 +19,18 @@
     <!-- HEADER -->
     <header class="site-header" role="banner">
         <div class="container header-inner">
-            <a class="brand" href="#home" aria-label="ADSA Lab Home" data-nav>
-                <img src="assets/photos/adsa_logo3.png" alt="ADSA Lab Logo" class="brand-logo" />
-                <span class="brand-text"><strong>Advanced Database Systems &amp; Applications (ADSA) Lab</strong></span>
+            <a class="brand" href="#home" aria-label="DANSA Lab Home" data-nav>
+                <img src="assets/photos/Logo_DANSA-Photoroom.png" alt="ADSA Lab Logo" class="brand-logo" />
+                <span class="brand-text"><strong>Data and Network Sciences  &amp; Applications (DANSA) Lab</strong></span>
             </a>
 
             <nav class="site-nav" role="navigation" aria-label="Primary">
-                <!-- FIX: add id used by JS -->
                 <button id="menu-icon" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menu</button>
-                <!-- FIX: add .navbar class so JS can find it -->
                 <ul id="nav-menu" class="nav-menu navbar">
                     <li><a href="#home" data-nav aria-current="page">Home</a></li>
                     <li><a href="team.html">Team</a></li>
                     <li><a href="#news" data-nav>News</a></li>
-                    <li><a href="#publications" data-nav>Publications</a></li>
+                    <li><a href="publication.html">Publications</a></li>
                     <li><a href="#contact" data-nav>Contact</a></li>
                 </ul>
             </nav>
@@ -42,16 +40,19 @@
     <!-- MAIN -->
     <main id="main">
 
-        <!-- HERO (full-width background image; image path set in CSS) -->
+        <!-- HERO (UPDATED WITH OVERLAY BACKGROUND) -->
+
         <section id="home" class="section-hero" role="region" aria-labelledby="home-title">
-            <div class="hero-text">
-                <h1 id="home-title">Welcome to Advanced Database Systems &amp; Applications Lab</h1>
-                <p>We research databases, distributed systems, data privacy &amp; security, and data-driven applications.</p>
-                <!-- OPTIONAL: typed text target to match your JS -->
-                <p><span id="typed-text" aria-live="polite"></span></p>
-                <div class="hero-ctas">
-                    <a class="btn" href="#publications" data-nav>View Publications</a>
-                    <a class="btn btn-outline" href="team.html">Meet the Team</a>
+            <img src="assets/photos/bg1.png" alt="Lab building" class="hero-image">
+            <div class="hero-overlay">
+                <div class="hero-text">
+                    <h1 id="home-title">Welcome to Data and Network Sciences &amp; Applications Lab</h1>
+                    <p>We research databases, distributed systems, data privacy &amp; security, and data-driven applications.</p>
+                    <p><span id="typed-text" aria-live="polite"></span></p>
+                    <div class="hero-ctas">
+                        <a class="btn" href="publication.html" data-nav>View Publications</a>
+                        <a class="btn btn-outline" href="team.html">Meet the Team</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -67,65 +68,24 @@
             </div>
         </section>
 
-        <!-- PUBLICATIONS -->
-        <section id="publications" class="section" aria-labelledby="pub-title">
-            <div class="container">
-                <h2 id="pub-title">Publications</h2>
-
-                <div class="pub-controls">
-                    <label>Year
-            <select id="pub-year">
-              <option value="all">All</option>
-              <option>2025</option>
-              <option>2024</option>
-              <option>2023</option>
-            </select>
-          </label>
-                    <label>Type
-            <select id="pub-type">
-              <option value="all">All</option>
-              <option value="Journal">Journal</option>
-              <option value="Conference">Conference</option>
-              <option value="Workshop">Workshop</option>
-            </select>
-          </label>
-                    <input id="pub-search" type="search" placeholder="Search title/author…" />
-                </div>
-
-                <ul id="pub-list" class="pub-list">
-                    <li class="pub-item" data-year="2025" data-type="Conference">
-                        <strong>Title of Paper A</strong> — Alhajj, R.; Author B (2025), XYZ Conf. ·
-                        <a href="#" target="_blank" rel="noopener">PDF</a>
-                    </li>
-                    <li class="pub-item" data-year="2024" data-type="Journal">
-                        <strong>Title of Paper B</strong> — Rokne, J.; Author C (2024), ABC Journal ·
-                        <a href="#" target="_blank" rel="noopener">DOI</a>
-                    </li>
-                    <li class="pub-item" data-year="2023" data-type="Workshop">
-                        <strong>Title of Paper C</strong> — Student X; Alhajj, R. (2023), DEF Workshop ·
-                        <a href="#" target="_blank" rel="noopener">Publisher</a>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- CONTACT (UPDATED) -->
+        <!-- CONTACT -->
         <section id="contact" class="section" aria-labelledby="contact-title">
             <div class="container">
                 <h2 id="contact-title">Get in Touch</h2>
-                <p>For collaboration or student opportunities, please email us.</p>
-                <!-- UPDATED: points to your Outlook address -->
-
-
-                <!-- UPDATED: backend-friendly form; JS will POST to data-endpoint and
-             fall back to mailto. Change data-endpoint to your server URL if needed. -->
+                <p>For collaboration or student opportunities, please email us or use the form below.</p>
                 <form id="contact-form" class="contact-form" novalidate data-endpoint="/api/contact">
-                    <label>Name <input type="text" name="name" required /></label>
-                    <label>Email <input type="email" name="email" required /></label>
-                    <label>Subject <input type="text" name="subject" placeholder="Website contact" /></label>
-                    <label>Message <textarea name="message" rows="5" required></textarea></label>
+                    <label for="name">Name</label>
+                    <input id="name" type="text" name="name" required />
 
-                    <!-- lets the backend know the destination inbox -->
+                    <label for="email">Email</label>
+                    <input id="email" type="email" name="email" required />
+
+                    <label for="subject">Subject</label>
+                    <input id="subject" type="text" name="subject" placeholder="Website contact" />
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+
                     <input type="hidden" name="to" value="ahmed.alvee1@ucalgary.ca" />
 
                     <button class="btn" type="submit">Send</button>
@@ -139,7 +99,7 @@
     <footer class="site-footer" role="contentinfo">
         <div class="container footer-inner">
             <div>
-                <strong>ADSA Lab</strong>
+                <strong>DANSA Lab</strong>
                 <div class="footer-meta">
                     <span>&copy; <span id="year"></span></span>
                     <span>•</span>
@@ -147,11 +107,7 @@
                 </div>
             </div>
 
-            <ul class="social-links" aria-label="Social links">
-                <li><a href="#" target="_blank" rel="noopener">Google Scholar</a></li>
-                <li><a href="#" target="_blank" rel="noopener">DBLP</a></li>
-                <li><a href="#" target="_blank" rel="noopener">GitHub</a></li>
-            </ul>
+
         </div>
     </footer>
 

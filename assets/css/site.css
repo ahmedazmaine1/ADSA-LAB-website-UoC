@@ -16,11 +16,12 @@
     /* cards/panels (dark gray) */
     --soft: #333;
     /* borders / subtle surfaces */
-    --brand-50: rgba(255, 140, 0, .08);
-    --brand-600: #ff7a00;
-    /* main orange */
-    --brand-700: #e86a00;
-    /* darker orange */
+    --brand-50: rgba(255, 0, 126, .08);
+    /* Updated with the new purple-pink gradient color */
+    --brand-600: #DD077F;
+    /* Main pink-purple color */
+    --brand-700: #981580;
+    /* Darker purple color */
     --text: #f5f5f5;
     /* white text */
     --muted: #bbbbbb;
@@ -217,9 +218,6 @@ small,
     position: fixed;
     left: 16px;
     top: 16px;
-    width: auto;
-    height: auto;
-    padding: 8px 12px;
     background: #111827;
     border: 1px solid var(--brand-600);
     border-radius: 6px;
@@ -312,8 +310,8 @@ small,
 
 .nav-menu a.is-active,
 .nav-menu a[aria-current="page"] {
-    background: linear-gradient(135deg, var(--brand-600), #3b82f6);
-    color: #081020;
+    background: transparent;
+    color: var(--text);
     font-weight: 700;
 }
 
