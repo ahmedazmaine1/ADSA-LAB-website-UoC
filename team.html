@@ -6,36 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>DANSA Lab — Data and Network Sciences & Applications Lab</title>
 
-    <!-- Styles -->
     <link rel="stylesheet" href="assets/css/site.css" />
+    <link rel="stylesheet" href="assets/css/team.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="people-page">
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- HEADER -->
+    <!-- =========================================================
+ HEADER — DANSA Lab (Unified with Home)
+ ========================================================= -->
     <header class="site-header" role="banner">
         <div class="container header-inner">
-            <a class="brand" href="#home" aria-label="DANSA Lab Home" data-nav>
-                <img src="assets/photos/Logo_DANSA-Photoroom.png" alt="ADSA Lab Logo" class="brand-logo" />
-                <span class="brand-text"><strong>Data and Network Sciences  &amp; Applications (DANSA) Lab</strong></span>
+            <!-- Left side: DANSA Logo and Lab title -->
+            <a class="brand" href="index.html#home" aria-label="DANSA Lab Home">
+                <img src="assets/photos/Logo_DANSA-Photoroom-Photoroom.png" alt="DANSA Lab Logo" class="brand-logo" />
+                <span class="brand-text"><strong>Data and Network Sciences &amp; Applications (DANSA) Lab</strong>
+          
+        </span>
             </a>
 
+            <!-- Hamburger Menu Button -->
+            <button class="menu-toggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+            <!-- Right side: Navigation links -->
             <nav class="site-nav" role="navigation" aria-label="Primary">
-                <button id="menu-icon" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menu</button>
-                <ul id="nav-menu" class="nav-menu navbar">
-                    <li><a href="#home" data-nav aria-current="page">Home</a></li>
-                    <li><a href="team.html">Team</a></li>
-                    <li><a href="#news" data-nav>News</a></li>
+                <ul class="nav-menu">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="team.html" class="is-active"><strong>Team</strong></a></li>
+                    <li><a href="index.html#news">News</a></li>
                     <li><a href="publication.html">Publications</a></li>
-                    <li><a href="#contact" data-nav>Contact</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+
+
     <main id="main">
         <section id="people" class="section" aria-labelledby="people-title">
             <div class="container">
@@ -43,153 +57,187 @@
 
                 <!-- Professors -->
                 <h3>Professors</h3>
-                <ul class="people-row professors">
-                    <li class="person">
-                        <div class="thumb" data-photo="assets/photos/Reda_Alhajj.png"></div>
-                        <div>
-                            <div class="name">Prof. Reda Alhajj</div>
-                            <div class="position">Professor</div>
-                            <!-- Website removed -->
+                <ul class="member-row professors">
+                    <li class="member-card">
+                        <div class="member-photo" data-photo="assets/photos/Reda_Alhajj.png"></div>
+                        <div class="member-body">
+                            <h4 class="member-name">Prof. Reda Alhajj</h4>
+                            <div class="member-role">Professor</div>
+                            <div class="research-feature">
+                                <span class="research-tag">Research</span>
+                                <div class="research-topics">Data mining · Social network analysis · Graph theory</div>
+                            </div>
                             <a class="stretched-link" href="prof_reda_alhajj.html" aria-label="Open biography of Prof. Reda Alhajj"></a>
                         </div>
                     </li>
-                    <li class="person">
-                        <div class="thumb" data-photo="assets/photos/Jon_Rokne.png"></div>
-                        <div>
-                            <div class="name">Prof. Jon Rokne</div>
-                            <div class="position">Professor</div>
-                            <!-- Profile removed -->
+
+                    <li class="member-card">
+                        <div class="member-photo" data-photo="assets/photos/Jon_Rokne.png"></div>
+                        <div class="member-body">
+                            <h4 class="member-name">Prof. Jon Rokne</h4>
+                            <div class="member-role">Professor</div>
+                            <div class="research-feature">
+                                <span class="research-tag">Research</span>
+                                <div class="research-topics">Computer graphics · Data science · Trust systems</div>
+                            </div>
                             <a class="stretched-link" href="prof_jon_rokne.html" aria-label="Open biography of Prof. Jon Rokne"></a>
                         </div>
                     </li>
                 </ul>
 
-                <!-- Ph.D. -->
+
+
+                <!-- Ph.D. Students -->
                 <h3>Ph.D. Candidates &amp; Students</h3>
-                <ul class="people-row phd">
-                    <li class="person">
-                        <div class="thumb" data-photo="assets/photos/Ahmed_Al_Marouf.png"></div>
-                        <div>
-                            <div class="name">Ahmed Al Marouf</div>
-                            <div class="position">Ph.D. Candidate</div>
+                <ul class="member-row phd">
+                    <li class="member-card">
+                        <div class="member-photo" data-photo="assets/photos/Ahmed_Al_Marouf.png"></div>
+                        <div class="member-body">
+                            <h4 class="member-name">Ahmed Al Marouf</h4>
+                            <div class="member-role">Ph.D. Candidate</div>
+                            <div class="research-feature">
+                                <span class="research-tag">Research</span>
+                                <div class="research-topics">Social network analysis · Trustworthy AI · Graph mining</div>
+                            </div>
                             <a class="stretched-link" href="ahmed_al_marouf.html" aria-label="Open biography of Ahmed Al Marouf"></a>
                         </div>
                     </li>
-                    <li class="person">
-                        <div class="thumb" data-photo="assets/photos/abdullah_elsheikh.png"></div>
-                        <div>
-                            <div class="name">Abdullah Elsheikh</div>
-                            <div class="position">Ph.D. Student</div>
-                            <a class="stretched-link" href="abdullah_elsheikh.html" aria-label="Open biography of Abdallah M A Elsheikh"></a>
+                    <li class="member-card">
+                        <div class="member-photo" data-photo="assets/photos/abdullah_elsheikh.png"></div>
+                        <div class="member-body">
+                            <h4 class="member-name">Abdullah Elsheikh</h4>
+                            <div class="member-role">Ph.D. Student</div>
+                            <div class="research-feature">
+                                <span class="research-tag">Research</span>
+                                <div class="research-topics">Machine learning · Recommender systems</div>
+                            </div>
+                            <a class="stretched-link" href="abdullah_elsheikh.html" aria-label="Open biography of Abdullah Elsheikh"></a>
                         </div>
                     </li>
                 </ul>
 
-                <!-- M.Sc. -->
+                <!-- M.Sc. Students -->
                 <h3>M.Sc. Students</h3>
-                <ul class="people-row msc">
-                    <li class="person">
-                        <div class="thumb" data-photo="assets/photos/Annette_John.png"></div>
-                        <div>
-                            <div class="name">Annette John</div>
-                            <div class="position">M.Sc. Student</div>
-                            <a class="stretched-link" href="Annette_John.html" aria-label="Open biography of Annette John "></a>
+                <ul class="member-row msc">
+                    <li class="member-card">
+                        <div class="member-photo" data-photo="assets/photos/Annette_John.png"></div>
+                        <div class="member-body">
+                            <h4 class="member-name">Annette John</h4>
+                            <div class="member-role">M.Sc. Student</div>
+                            <div class="research-feature">
+                                <span class="research-tag">Research</span>
+                                <div class="research-topics">Data mining · Privacy</div>
+                            </div>
+                            <a class="stretched-link" href="Annette_John.html" aria-label="Open biography of Anette John"></a>
                     </li>
-                    <li class=" person ">
-                        <div class="thumb " data-photo="assets/photos/adnan_ferdous_ashrafi.png "></div>
-                        <div>
-                            <div class="name ">Adnan Ferdous Ashrafi</div>
-                            <div class="position ">M.Sc. Student</div>
-                            <a class="stretched-link" href="adnan_ferdous_ashrafi.html" aria-label="Open biography of Adnan Ferdous Ashrafi"></a>
-                        </div>
-                    </li>
-                    <li class="person ">
-                        <div class="thumb " data-photo="assets/photos/sara_imani.png "></div>
-                        <div>
-                            <div class="name ">Sara Imani</div>
-                            <div class="position ">M.Sc. Student</div>
-                            <a class="stretched-link" href="sara_imani.html" aria-label="Open biography of Sara Imani"></a>
 
+                    <li class="member-card">
+                        <div class="member-photo" data-photo="assets/photos/adnan_ferdous_ashrafi.png"></div>
+                        <div class="member-body">
+                            <h4 class="member-name">Adnan Ferdous Ashrafi</h4>
+                            <div class="member-role">M.Sc. Student</div>
+                            <div class="research-feature">
+                                <span class="research-tag">Research</span>
+                                <div class="research-topics">Deep learning · Computer vision</div>
+                            </div>
+                            <a class="stretched-link" href="adnan_ferdous_ashrafi.html" aria-label="Open biography of adnan Ferdous Ashrafi"></a>
                         </div>
                     </li>
-                    <li class="person ">
-                        <div class="thumb " data-photo="assets/photos/msc-4.jpg "></div>
-                        <div>
-                            <div class="name ">Roy Li</div>
-                            <div class="position ">M.Sc. Student</div>
+
+                    <li class="member-card">
+                        <div class="member-photo" data-photo="assets/photos/sara_imani.png"></div>
+                        <div class="member-body">
+                            <h4 class="member-name">Sara Imani</h4>
+                            <div class="member-role">M.Sc. Student</div>
+                            <div class="research-feature">
+                                <span class="research-tag">Research</span>
+                                <div class="research-topics">Bioinformatics · Graph learning</div>
+                            </div>
+                            <a class="stretched-link" href="sara_imani.html" aria-label="Open biography of Sara Imani"></a>
+                        </div>
+                    </li>
+
+                    <!-- ✅ Roy Li Added -->
+                    <li class="member-card">
+                        <div class="member-photo" data-photo="assets/photos/Roy_Li.png"></div>
+                        <div class="member-body">
+                            <h4 class="member-name">Roy Li</h4>
+                            <div class="member-role">M.Sc. Student</div>
+                            <div class="research-feature">
+                                <span class="research-tag">Research</span>
+                                <div class="research-topics">Information retrieval · Trustworthy AI</div>
+                            </div>
+                            <div class="member-social" data-profile="roy_li.html"></div>
                         </div>
                     </li>
                 </ul>
 
-                <!-- Undergrad -->
+                <!-- Undergraduate Students -->
                 <h3>Undergraduate Students</h3>
-                <ul class="people-row undergrad ">
-                    <li class="person ">
-                        <div class="thumb " data-photo="assets/photos/falah_sheikh.png "></div>
-                        <div>
-                            <div class="name ">Falah Sheikh</div>
-                            <div class="position ">Undergrad Researcher</div>
+                <ul class="member-row undergrad">
+                    <li class="member-card">
+                        <div class="member-photo" data-photo="assets/photos/falah_sheikh.png"></div>
+                        <div class="member-body">
+                            <h4 class="member-name">Falah Sheikh</h4>
+                            <div class="member-role">Undergrad Researcher</div>
                             <a class="stretched-link" href="falah_sheikh.html" aria-label="Open biography of Falah Sheikh"></a>
                         </div>
                     </li>
-                    <li class="person ">
-                        <div class="thumb " data-photo="assets/photos/caio_vinicius.png "></div>
-                        <div>
-                            <div class="name ">Caio Vinicius</div>
-                            <div class="position ">Undergrad Researcher</div>
-                            <a class="stretched-link" href="caio_vinicius.html" aria-label="Open biography of Caio Vinicius"></a>
+                    <li class="member-card">
+                        <div class="member-photo" data-photo="assets/photos/caio_vinicius.png"></div>
+                        <div class="member-body">
+                            <h4 class="member-name">Caio Vinicius</h4>
+                            <div class="member-role">Undergrad Researcher</div>
+                            <a class="stretched-link" href="caio_vinicius.html" aria-label="Open biography of Caio "></a>
                         </div>
                     </li>
-                    <li class="person ">
-                        <div class="thumb " data-photo="assets/photos/Mazin.png "></div>
-                        <div>
-                            <div class="name ">Sheikh Muhammad Mazin</div>
-                            <div class="position ">Undergrad Researcher</div>
+                    <li class="member-card">
+                        <div class="member-photo" data-photo="assets/photos/Mazin.png"></div>
+                        <div class="member-body">
+                            <h4 class="member-name">Sheikh Muhammad Mazin</h4>
+                            <div class="member-role">Undergrad Researcher</div>
                             <a class="stretched-link" href="mazin.html" aria-label="Open biography of Mazin"></a>
-
                         </div>
                     </li>
-                    <li class="person ">
-                        <div class="thumb " data-photo="assets/photos/Ahmed_Azmaine_Alvee.png "></div>
-                        <div>
-                            <div class="name ">Ahmed Azmaine Alvee</div>
-                            <div class="position ">Undergrad Researcher</div>
+                    <li class="member-card">
+                        <div class="member-photo" data-photo="assets/photos/Ahmed_Azmaine_Alvee.png"></div>
+                        <div class="member-body">
+                            <h4 class="member-name">Ahmed Azmaine Alvee</h4>
+                            <div class="member-role">Undergrad Researcher</div>
+                            <div class="member-social" data-profile="ahmed_azmaine_alvee.html"></div>
                         </div>
                     </li>
                 </ul>
 
-                <!-- External -->
+                <!-- External Collaborators -->
                 <h3>External Collaborators</h3>
-                <ul class="people-row external ">
-                    <li class="person ">
-                        <div class="thumb " data-photo="assets/photos/collab-1.jpg "></div>
-                        <div>
-                            <div class="name ">Kiana Bindra</div>
-                            <div class="position ">External Collaborator</div>
+                <ul class="member-row external">
+                    <li class="member-card">
+                        <div class="member-photo" data-photo="assets/photos/collab-1.jpg"></div>
+                        <div class="member-body">
+                            <h4 class="member-name">Kiana Bindra</h4>
+                            <div class="member-role">External Collaborator</div>
                         </div>
                     </li>
                 </ul>
-
                 </div>
         </section>
     </main>
 
-    <footer class="site-footer " role="contentinfo ">
-        <div class="container footer-inner ">
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-inner">
             <div>
                 <strong>DANSA Lab</strong>
-                <div class="footer-meta ">
-                    <span>&copy; <span id="year "></span></span>
+                <div class="footer-meta">
+                    <span>&copy; <span id="year"></span></span>
                     <span>•</span>
-                    <a href="#top " onclick="window.scrollTo({top:0,behavior: 'smooth'});return false; ">Back to top</a>
+                    <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a>
                 </div>
             </div>
-
-
         </div>
     </footer>
 
-    <script defer src="script.js "></script>
+    <script defer src="script.js"></script>
 </body>
 
 </html>

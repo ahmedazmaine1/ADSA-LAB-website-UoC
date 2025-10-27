@@ -1,0 +1,684 @@
+/* =========================================================
+   🔹 DANSA Lab — TEAM PAGE (Final Synchronized Version)
+   
+   FIXES: 
+   1. Header gaps and measurements unified.
+   2. FIX: Aggressive reset remains for the active link to attempt to remove the purple box.
+   ========================================================= */
+
+
+/* ---------- CSS Variables ---------- */
+
+:root {
+    --brand-600: #06b6d4;
+    --text: #e0e6f3;
+    --muted: #a8b3cf;
+}
+
+
+/* ---------- RESET AND BASE STYLES ---------- */
+
+
+/* Ensure smooth scrolling is enabled */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Add padding to page to prevent overlap with fixed header */
+
+body {
+    padding-top: 6rem;
+    font-family: "Inter", sans-serif;
+    background-color: #0b0c0f;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+     HEADER — Fixed Navigation Bar (UNIFIED)
+     ========================================================= */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Consistent background and blur from home.css */
+    background: rgba(10, 15, 25, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 1000;
+    padding: 0.9rem 2.5rem;
+    /* Consistent Header Height */
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 3vw;
+    box-sizing: border-box;
+    max-width: none;
+    margin: 0;
+}
+
+
+/* -------- Left: Logo + Title (Brand) -------- */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    /* UNIFIED BRAND GAP */
+    text-decoration: none;
+}
+
+.brand-logo {
+    height: 55px;
+    /* UNIFIED LOGO HEIGHT */
+    width: auto;
+    margin-right: 0;
+}
+
+.brand-text {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: all 0.35s ease-in-out;
+    text-shadow: none;
+    white-space: nowrap;
+}
+
+.brand-text strong {
+    font-weight: 700;
+}
+
+.brand-text:hover {
+    color: #ffffff;
+    transform: scale(1.08);
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.6), 0 0 16px rgba(0, 255, 255, 0.4), 0 0 24px rgba(0, 255, 255, 0.3);
+}
+
+
+/* -------- Right: Navigation Links -------- */
+
+.site-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.site-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    /* UNIFIED NAV GAP */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    text-shadow: none;
+}
+
+.site-nav a:hover {
+    color: #06b6d4;
+    text-shadow: none;
+}
+
+.site-nav a.is-active {
+    color: #06b6d4;
+    text-shadow: none;
+}
+
+
+/* ===========================================
+         Responsive Navbar — Hamburger Menu & Mobile Menu
+         =========================================== */
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    z-index: 2001;
+    /* ensures it stays above nav */
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+
+/* Animation when menu is open */
+
+.menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(45deg) translateY(7px);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translateY(-7px);
+}
+
+
+/* Responsive behavior — hide desktop menu on small screens */
+
+@media (max-width: 900px) {
+    .header-inner {
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+        /* ensures space between text & hamburger */
+    }
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        /* tighter logo-title spacing */
+    }
+    .brand-logo {
+        height: 48px;
+    }
+    .brand-text {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 600;
+        line-height: 1.2;
+        max-width: 180px;
+        text-align: left;
+        white-space: normal;
+        /* allow wrapping if needed */
+    }
+    .menu-toggle {
+        display: flex;
+        flex-shrink: 0;
+        margin-left: auto;
+        /* push hamburger to far right */
+    }
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 70%;
+        background-color: rgba(15, 20, 35, 0.95);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s ease-in-out;
+        z-index: 1500;
+    }
+    .nav-menu.active {
+        right: 0;
+    }
+    .nav-menu li {
+        margin: 1.5rem 0;
+    }
+    .nav-menu a {
+        font-size: 1.2rem;
+        color: #ffffff;
+    }
+    /* Ensure mobile menu active links don't have the purple box, 
+           as it looks bad on the full-screen menu. */
+    .nav-menu a.is-active {
+        background: none !important;
+        padding: 0 !important;
+        color: #06b6d4 !important;
+    }
+}
+
+
+/* -------- Tablet/Smaller Laptop adjustments -------- */
+
+@media (max-width: 1024px) {
+    .brand-logo {
+        height: 50px;
+    }
+    .brand-text {
+        font-size: 0.9rem;
+    }
+    .nav-menu {
+        gap: 1.5rem;
+    }
+}
+
+
+/* ==================================================
+   🔑 AGGRESSIVE FIX: REMOVE EXTERNAL PURPLE BACKGROUND
+   ==================================================
+*/
+
+
+/* Targets the active link and ensures its background is NONE */
+
+.site-nav .nav-menu a.is-active {
+    background: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+}
+
+
+/* Targets the pseudo-focus/active states, which often cause the glow/box */
+
+.site-nav .nav-menu a.is-active:focus,
+.site-nav .nav-menu a.is-active:active {
+    outline: none !important;
+    box-shadow: none !important;
+    background: none !important;
+}
+
+
+/* --- Hamburger Menu & Mobile Menu (Copied from home.css) --- */
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    z-index: 2001;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+
+/* Animation when menu is open */
+
+.menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(45deg) translateY(7px);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translateY(-7px);
+}
+
+
+/* Mobile Nav Overrides */
+
+@media (max-width: 900px) {
+    .header-inner {
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .brand {
+        gap: 0.7rem;
+    }
+    .brand-logo {
+        height: 48px;
+    }
+    .brand-text {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 600;
+        line-height: 1.2;
+        max-width: 180px;
+        text-align: left;
+        white-space: normal;
+    }
+    .menu-toggle {
+        display: flex;
+        flex-shrink: 0;
+        margin-left: auto;
+    }
+    .site-nav ul {
+        /* Targets ul inside site-nav */
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 70%;
+        background-color: rgba(15, 20, 35, 0.95);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s ease-in-out;
+        z-index: 1500;
+    }
+    .site-nav ul.active {
+        right: 0;
+    }
+    .site-nav li {
+        margin: 1.5rem 0;
+    }
+    .site-nav a {
+        font-size: 1.2rem;
+        color: #ffffff;
+    }
+}
+
+
+/* Responsive adjustments for mid-size screens */
+
+@media (max-width: 1024px) {
+    .brand-logo {
+        height: 50px;
+    }
+    .brand-text {
+        font-size: 0.9rem;
+    }
+    .site-nav ul {
+        gap: 1.5rem;
+    }
+}
+
+
+/* =========================================================
+     🔹 TEAM CONTENT DESIGN — UNCHANGED
+     ========================================================= */
+
+
+/* The following styles define the team section cards and layout. 
+   These remain identical to your original design. */
+
+.member-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+
+/* Card layout */
+
+.member-card {
+    background: linear-gradient(180deg, rgba(16, 24, 48, 0.9), rgba(10, 12, 20, 0.95));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 28px 22px;
+    text-align: center;
+    flex: 1 1 300px;
+    max-width: 340px;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.member-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 45px 12px rgba(0, 255, 255, 0.25);
+}
+
+
+/* Photo */
+
+.member-photo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    border: 3px solid rgba(173, 216, 230, 0.3);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.18);
+    transition: box-shadow 0.3s ease;
+}
+
+.member-card:hover .member-photo {
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.35);
+}
+
+
+/* Text */
+
+.member-name {
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.member-role {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--brand-600);
+}
+
+
+/* Research tag */
+
+.research-feature {
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 10px;
+    color: #ccc;
+}
+
+.research-tag {
+    display: inline-block;
+    background: var(--brand-600);
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+}
+
+
+/* ======= Sky Blue Social Buttons ======= */
+
+.member-social {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 1.2rem;
+}
+
+.member-social a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgba(173, 216, 230, 0.8);
+    border-radius: 50%;
+    color: rgb(173, 216, 230);
+    box-shadow: 0 0 12px rgba(173, 216, 230, 0.35);
+    background: rgba(255, 255, 255, 0.02);
+    transition: all 0.25s ease-in-out;
+}
+
+.member-social a:hover {
+    background: rgba(173, 216, 230, 0.15);
+    color: white;
+    box-shadow: 0 0 35px rgba(0, 255, 255, 0.75);
+    transform: scale(1.1);
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+    .member-photo {
+        width: 120px;
+        height: 120px;
+    }
+    .member-card {
+        flex: 1 1 260px;
+    }
+}
+
+
+/* Clickable hover glow */
+
+.member-card.clickable {
+    cursor: pointer;
+}
+
+.member-card.clickable:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 45px 15px rgba(0, 255, 200, 0.45), 0 0 85px 25px rgba(0, 200, 255, 0.25);
+    transition: all 0.35s ease;
+}
+
+
+/* --- Make professor cards fully clickable --- */
+
+.member-card .stretched-link {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    text-decoration: none !important;
+    border: none !important;
+    outline: none !important;
+    color: inherit !important;
+}
+
+.member-card .stretched-link:hover,
+.member-card .stretched-link:focus,
+.member-card .stretched-link:active {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+
+/* Fix for Professor Cards (white names + no underline) */
+
+.professors .member-name {
+    color: #ffffff;
+}
+
+.professors a {
+    text-decoration: none !important;
+    border: none !important;
+    outline: none !important;
+    color: inherit !important;
+}
+
+.professors a:hover,
+.professors a:focus,
+.professors a:active {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+
+/* === Stronger Light Blue Shine when Clicking Professors === */
+
+.professors .member-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.professors .member-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient( circle at center, rgba(0, 215, 255, 0.55) 0%, rgba(0, 200, 255, 0.25) 40%, rgba(0, 200, 255, 0) 75%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.professors .member-card:active::after {
+    opacity: 1;
+    transition: opacity 0.18s ease;
+}
+
+
+/* ======================================================
+     ✨ Hierarchy-Based Card Sizing for Team Sections
+     ====================================================== */
+
+
+/* Professors — largest cards */
+
+.professors .member-card {
+    flex: 1 1 360px;
+    max-width: 380px;
+    min-height: 480px;
+}
+
+
+/* Ph.D. Candidates & Students — slightly smaller */
+
+.phd .member-card {
+    flex: 1 1 320px;
+    max-width: 340px;
+    min-height: 440px;
+}
+
+
+/* M.Sc. Students — medium size */
+
+.msc .member-card {
+    flex: 1 1 280px;
+    max-width: 300px;
+    min-height: 400px;
+}
+
+
+/* Undergraduate Students — smaller (fit 4 per row) */
+
+.undergrad .member-card {
+    flex: 1 1 240px;
+    max-width: 260px;
+    min-height: 360px;
+}
+
+
+/* External Collaborators — same as undergrad */
+
+.external .member-card {
+    flex: 1 1 240px;
+    max-width: 260px;
+    min-height: 360px;
+}
+
+
+/* Responsive adjustment for smaller screens */
+
+@media (max-width: 1200px) {
+    .member-card {
+        flex: 1 1 45%;
+    }
+}
+
+@media (max-width: 700px) {
+    .member-card {
+        flex: 1 1 90%;
+    }
+}

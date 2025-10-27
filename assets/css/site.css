@@ -203,6 +203,52 @@ small,
 }
 
 
+/* ============================================
+   Interactive Lab Title (White Glow Only)
+   ============================================ */
+
+.brand-title {
+    color: #ffffff;
+    /* Always white */
+    font-weight: 800;
+    text-decoration: none !important;
+    /* Remove underline */
+    position: relative;
+    transition: text-shadow 0.3s ease;
+}
+
+.brand-title:hover {
+    color: #ffffff;
+    /* Stay white on hover */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.brand-title:active {
+    color: #ffffff;
+    /* Stay white when clicked */
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+
+/* Flash animation when clicked */
+
+.flash {
+    animation: flashWhiteGlow 0.6s ease-in-out;
+}
+
+@keyframes flashWhiteGlow {
+    0% {
+        text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    }
+    100% {
+        text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+
 /* ---------- Skip link ---------- */
 
 .skip-link {
@@ -226,115 +272,109 @@ small,
 
 
 /* =========================================================
-     HEADER / NAV
+     HEADER — Fixed Navigation Bar (UNIFIED)
      ========================================================= */
 
 .site-header {
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 9000;
-    background: rgba(11, 16, 32, .7);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
+    left: 0;
+    width: 100%;
+    /* Consistent background and blur from home.css */
+    background: rgba(10, 15, 25, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 1000;
+    padding: 0.9rem 2.5rem;
+    /* Consistent Header Height */
 }
 
 .header-inner {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 16px;
-    padding: 10px 0;
+    width: 100%;
+    padding: 0 3vw;
+    box-sizing: border-box;
+    max-width: none;
+    margin: 0;
 }
+
+
+/* -------- Left: Logo + Title (Brand) -------- */
 
 .brand {
     display: flex;
     align-items: center;
-    gap: 10px;
-    color: inherit;
-}
-
-.brand:hover {
+    gap: 40px;
+    /* UNIFIED BRAND GAP */
     text-decoration: none;
 }
 
 .brand-logo {
-    width: 34px;
-    height: 34px;
+    height: 55px;
+    /* UNIFIED LOGO HEIGHT */
+    width: auto;
+    margin-right: 0;
+}
+
+.brand-text {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: all 0.35s ease-in-out;
+    text-shadow: none;
+    white-space: nowrap;
 }
 
 .brand-text strong {
-    display: block;
-    font-weight: 800;
-    letter-spacing: .02em;
-}
-
-.brand-text small {
-    display: block;
-    color: var(--muted);
-    font-size: 12px;
-    margin-top: -2px;
-}
-
-.site-nav {
-    margin-left: auto;
-}
-
-.nav-toggle {
-    display: none;
-    appearance: none;
-    background: transparent;
-    border: 1px solid var(--soft);
-    color: var(--text);
-    padding: 8px 10px;
-    border-radius: 10px;
-}
-
-.nav-menu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 12px;
-}
-
-.nav-menu a {
-    display: inline-block;
-    padding: 8px 12px;
-    border-radius: 10px;
-    color: var(--text);
-}
-
-.nav-menu a:hover {
-    background: var(--brand-50);
-    text-decoration: none;
-}
-
-.nav-menu a.is-active,
-.nav-menu a[aria-current="page"] {
-    background: transparent;
-    color: var(--text);
     font-weight: 700;
 }
 
-@media (max-width: 820px) {
-    .nav-toggle {
-        display: inline-block;
-    }
-    .nav-menu {
-        position: absolute;
-        right: 16px;
-        top: 58px;
-        background: var(--bg-elev);
-        border: 1px solid var(--soft);
-        border-radius: 14px;
-        padding: 10px;
-        display: none;
-        flex-direction: column;
-        min-width: 180px;
-        box-shadow: var(--shadow);
-    }
-    .nav-menu.show {
-        display: flex;
-    }
+.brand-text:hover {
+    color: #ffffff;
+    transform: scale(1.08);
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.6), 0 0 16px rgba(0, 255, 255, 0.4), 0 0 24px rgba(0, 255, 255, 0.3);
+}
+
+
+/* -------- Right: Navigation Links -------- */
+
+.site-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.site-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    /* UNIFIED NAV GAP */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    text-shadow: none;
+}
+
+.site-nav a:hover {
+    color: #06b6d4;
+    text-shadow: none;
+}
+
+.site-nav a.is-active {
+    color: #06b6d4;
+    text-shadow: none;
 }
 
 
@@ -776,4 +816,67 @@ small,
     padding: 6px 10px;
     border: 1px solid var(--soft);
     border-radius: 999px;
+}
+
+
+/* ===== Featured Logos Section (Updated) ===== */
+
+.featured-section {
+    background: rgba(15, 18, 28, 0.4);
+    /* more transparent */
+    backdrop-filter: blur(8px);
+    padding: 70px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.featured-title {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.featured-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 80px;
+}
+
+.featured-logo {
+    height: 100px;
+    /* bigger logos */
+    width: auto;
+    opacity: 0.85;
+    filter: brightness(0.9);
+    transition: all 0.35s ease;
+}
+
+.featured-logo:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    filter: brightness(1.2) drop-shadow(0 0 25px rgba(0, 255, 255, 0.5));
+}
+
+@media (max-width: 768px) {
+    .featured-logo {
+        height: 70px;
+    }
+    .featured-logos {
+        gap: 40px;
+    }
+}
+
+
+/* Prevent header overlap on bio pages */
+
+.people-page .bio-hero {
+    padding-top: 130px;
+    /* space for fixed header */
 }

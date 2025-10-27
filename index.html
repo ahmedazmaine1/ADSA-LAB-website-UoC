@@ -7,7 +7,9 @@
     <title>DANSA Lab — Data and Network Sciences & Applications Lab</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="assets/css/site.css" />
+
+    <link rel="stylesheet" href="assets/css/home.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -16,26 +18,42 @@
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- HEADER -->
+
+    <!-- =========================================================
+     HEADER — DANSA Lab (restored layout)
+     ========================================================= -->
     <header class="site-header" role="banner">
         <div class="container header-inner">
-            <a class="brand" href="#home" aria-label="DANSA Lab Home" data-nav>
-                <img src="assets/photos/Logo_DANSA-Photoroom.png" alt="ADSA Lab Logo" class="brand-logo" />
-                <span class="brand-text"><strong>Data and Network Sciences  &amp; Applications (DANSA) Lab</strong></span>
+            <!-- Left side: DANSA Logo and Lab title -->
+            <a class="brand" href="index.html#home" aria-label="DANSA Lab Home">
+                <img src="assets/photos/Logo_DANSA-Photoroom-Photoroom.png" alt="DANSA Lab Logo" class="brand-logo" />
+                <span class="brand-text">
+              Data and Network Sciences &amp; Applications (DANSA) Lab
+            </span>
             </a>
-
+            <!-- Hamburger Menu Button -->
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <!-- Right side: Navigation links -->
             <nav class="site-nav" role="navigation" aria-label="Primary">
-                <button id="menu-icon" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menu</button>
-                <ul id="nav-menu" class="nav-menu navbar">
-                    <li><a href="#home" data-nav aria-current="page">Home</a></li>
+                <ul class="nav-menu">
+                    <li>
+                        <a href="index.html#home" class="is-active">
+                            <strong>Home</strong></a>
+                    </li>
                     <li><a href="team.html">Team</a></li>
-                    <li><a href="#news" data-nav>News</a></li>
+                    <li><a href="index.html#news">News</a></li>
                     <li><a href="publication.html">Publications</a></li>
-                    <li><a href="#contact" data-nav>Contact</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
+        </div>
     </header>
+
 
     <!-- MAIN -->
     <main id="main">
@@ -43,12 +61,12 @@
         <!-- HERO (UPDATED WITH OVERLAY BACKGROUND) -->
 
         <section id="home" class="section-hero" role="region" aria-labelledby="home-title">
-            <img src="assets/photos/bg1.png" alt="Lab building" class="hero-image">
+            <img src="assets/photos/DANSA_bg3.png" alt="Lab building" class="hero-image">
             <div class="hero-overlay">
                 <div class="hero-text">
                     <h1 id="home-title">Welcome to Data and Network Sciences &amp; Applications Lab</h1>
                     <p>We research databases, distributed systems, data privacy &amp; security, and data-driven applications.</p>
-                    <p><span id="typed-text" aria-live="polite"></span></p>
+
                     <div class="hero-ctas">
                         <a class="btn" href="publication.html" data-nav>View Publications</a>
                         <a class="btn btn-outline" href="team.html">Meet the Team</a>
@@ -57,23 +75,52 @@
             </div>
         </section>
 
+
+        <!-- ======= Featured Logos Section ======= -->
+        <section id="featured" class="featured-section">
+            <div class="featured-logos">
+                <!-- 1️⃣ DANSA Lab -->
+                <img src="assets/photos/Logo_DANSA-Photoroom-Photoroom.png" alt="DANSA Lab Logo" class="featured-logo dansa" />
+
+                <!-- 2️⃣ University of Calgary -->
+                <a href="https://www.ucalgary.ca/" target="_blank" rel="noopener noreferrer" class="featured-link">
+                    <img src="assets/photos/uni_logo-Photoroom.png" alt="University of Calgary Logo" class="featured-logo ucalgary" />
+                </a>
+
+                <!-- 3️⃣ Main Campus Logo -->
+                <a href="https://ucalgary.ca/about-ucalgary/our-campuses/main-campus" target="_blank" rel="noopener noreferrer" class="featured-link">
+                    <img src="assets/photos/brand_camp-Photoroom.png" alt="UCalgary Main Campus Logo" class="featured-logo campus" />
+                </a>
+
+                <!-- 4️⃣ Faculty of Science -->
+                <a href="https://science.ucalgary.ca/computer-science" target="_blank" rel="noopener noreferrer" class="featured-link">
+                    <img src="assets/photos/cs_ucalgary.png" alt="Faculty of Science Logo" class="featured-logo faculty" />
+                </a>
+            </div>
+        </section>
+
+
+
         <!-- NEWS -->
         <section id="news" class="section" aria-labelledby="news-title">
             <div class="container">
                 <h2 id="news-title">News</h2>
                 <ul class="news-list">
-                    <li class="news-item"><time>2025-09-01</time> Paper accepted at XYZ 2025 — knowledge graphs.</li>
-                    <li class="news-item"><time>2025-08-15</time> New Ph.D. student joined the lab.</li>
+                    <li class="news-item news-placeholder-item">
+                        Check back soon for the latest updates and announcements from the lab.
+                    </li>
                 </ul>
             </div>
         </section>
+
 
         <!-- CONTACT -->
         <section id="contact" class="section" aria-labelledby="contact-title">
             <div class="container">
                 <h2 id="contact-title">Get in Touch</h2>
                 <p>For collaboration or student opportunities, please email us or use the form below.</p>
-                <form id="contact-form" class="contact-form" novalidate data-endpoint="/api/contact">
+
+                <form id="contact-form" class="contact-form" novalidate>
                     <label for="name">Name</label>
                     <input id="name" type="text" name="name" required />
 
@@ -81,37 +128,92 @@
                     <input id="email" type="email" name="email" required />
 
                     <label for="subject">Subject</label>
-                    <input id="subject" type="text" name="subject" placeholder="Website contact" />
+                    <input id="subject" type="text" name="subject" />
 
                     <label for="message">Message</label>
                     <textarea id="message" name="message" rows="5" required></textarea>
-
-                    <input type="hidden" name="to" value="ahmed.alvee1@ucalgary.ca" />
 
                     <button class="btn" type="submit">Send</button>
                     <p class="form-status" hidden></p>
                 </form>
             </div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const form = document.querySelector("#contact-form");
+                    const status = document.querySelector(".form-status");
+
+                    form.addEventListener("submit", async(e) => {
+                        e.preventDefault();
+
+                        const name = form.name.value.trim();
+                        const email = form.email.value.trim();
+                        const subject = form.subject.value.trim();
+                        const message = form.message.value.trim();
+
+                        status.hidden = false;
+                        status.style.transition = "all 0.5s ease";
+                        status.style.opacity = "1";
+                        status.style.fontWeight = "600";
+                        status.textContent = "⏳ Sending...";
+
+                        try {
+                            const res = await fetch("http://127.0.0.1:3000/api/contact", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify({
+                                    name,
+                                    email,
+                                    subject,
+                                    message,
+                                    to: "alhajj@ucalgary.ca",
+                                }),
+                            });
+
+                            const data = await res.json();
+
+                            if (res.ok) {
+                                status.style.color = "#00ff99";
+                                status.textContent = "✅ Message sent successfully!";
+                                form.reset();
+                            } else {
+                                status.style.color = "#ff5555";
+                                status.textContent = `❌ ${data.error || "Failed to send message"}`;
+                            }
+                        } catch (err) {
+                            status.style.color = "#ff5555";
+                            status.textContent = "⚠️ Network error — could not reach backend.";
+                        }
+
+                        // fade out smoothly
+                        setTimeout(() => {
+                            status.style.opacity = "0";
+                            setTimeout(() => (status.hidden = true), 500);
+                        }, 4000);
+                    });
+                });
+            </script>
         </section>
-    </main>
 
-    <!-- FOOTER -->
-    <footer class="site-footer" role="contentinfo">
-        <div class="container footer-inner">
-            <div>
-                <strong>DANSA Lab</strong>
-                <div class="footer-meta">
-                    <span>&copy; <span id="year"></span></span>
-                    <span>•</span>
-                    <a href="#home" data-nav>Back to top</a>
+        <!-- FOOTER -->
+        <footer class="site-footer" role="contentinfo">
+            <div class="container footer-inner">
+                <div>
+                    <strong>DANSA Lab</strong>
+                    <div class="footer-meta">
+                        <span>&copy; <span id="year"></span></span>
+                        <span>•</span>
+                        <a href="#home" data-nav>Back to top</a>
+                    </div>
                 </div>
+
+
             </div>
+        </footer>
 
-
-        </div>
-    </footer>
-
-    <script defer src="script.js"></script>
+        <script defer src="script.js"></script>
 </body>
 
 </html>
