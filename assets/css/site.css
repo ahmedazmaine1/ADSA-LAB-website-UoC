@@ -1,7 +1,11 @@
 /* =========================================================
    ADSA Lab — site.css
-   Works with index.html, team.html, prof_* and ahmed_* bios,
-   and the provided script.js
+   
+   ✅ FIX: Kept the original PINK/PURPLE branding for all content (--brand-600: #DD077F;).
+   ✅ FIX: FORCED the Brand Title (.brand-text) to use the CYAN/BLUE glow (static and hover).
+   ✅ FIX: Aggressively REMOVED all pink underline/border from the header link/text on all screens.
+   ✅ FIX: Ensured the mobile header layout (brand/logo) does not collapse/overlap, and the 
+          HAMBURGER MENU ICON IS VISIBLE on small screens.
    ========================================================= */
 
 
@@ -16,8 +20,8 @@
     /* cards/panels (dark gray) */
     --soft: #333;
     /* borders / subtle surfaces */
+    /* KEEPING ORIGINAL PINK/PURPLE BRANDING */
     --brand-50: rgba(255, 0, 126, .08);
-    /* Updated with the new purple-pink gradient color */
     --brand-600: #DD077F;
     /* Main pink-purple color */
     --brand-700: #981580;
@@ -75,6 +79,7 @@ img {
 }
 
 a {
+    /* Uses pink/purple brand color for generic links */
     color: var(--brand-600);
     text-decoration: none;
 }
@@ -207,25 +212,24 @@ small,
    Interactive Lab Title (White Glow Only)
    ============================================ */
 
+
+/* Keeping the original .brand-title for context, but using .brand-text below */
+
 .brand-title {
     color: #ffffff;
-    /* Always white */
     font-weight: 800;
     text-decoration: none !important;
-    /* Remove underline */
     position: relative;
     transition: text-shadow 0.3s ease;
 }
 
 .brand-title:hover {
     color: #ffffff;
-    /* Stay white on hover */
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
 }
 
 .brand-title:active {
     color: #ffffff;
-    /* Stay white when clicked */
     text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
 }
 
@@ -304,11 +308,14 @@ small,
 /* -------- Left: Logo + Title (Brand) -------- */
 
 .brand {
+    /* 💥 FIX: Ensure the brand link itself has no decoration or border (Aggressive removal) */
     display: flex;
     align-items: center;
     gap: 40px;
-    /* UNIFIED BRAND GAP */
-    text-decoration: none;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    outline: none !important;
 }
 
 .brand-logo {
@@ -325,8 +332,20 @@ small,
     letter-spacing: 0.3px;
     cursor: pointer;
     transition: all 0.35s ease-in-out;
-    text-shadow: none;
+    /* 💥 FIX: AGGRESSIVELY REMOVE BORDER/UNDERLINE */
+    border-bottom: none !important;
+    text-decoration: none !important;
+    /* 💥 FIX: FORCE STATIC CYAN/BLUE GLOW (to match team/home) */
+    text-shadow: 0 1px 1px rgba(0, 255, 255, 0.5), 0 0 15px rgba(0, 255, 255, 0.3);
     white-space: nowrap;
+}
+
+
+/* 💥 FIX: Remove the unwanted hyphen/dash that may be a pseudo-element */
+
+.brand-text::after,
+.brand-text::before {
+    content: none !important;
 }
 
 .brand-text strong {
@@ -336,6 +355,7 @@ small,
 .brand-text:hover {
     color: #ffffff;
     transform: scale(1.08);
+    /* 💥 FIX: FORCE HOVER CYAN/BLUE GLOW (to match team/home) */
     text-shadow: 0 0 8px rgba(0, 255, 255, 0.6), 0 0 16px rgba(0, 255, 255, 0.4), 0 0 24px rgba(0, 255, 255, 0.3);
 }
 
@@ -368,13 +388,51 @@ small,
 }
 
 .site-nav a:hover {
-    color: #06b6d4;
+    /* Uses the pink/purple brand color */
+    color: var(--brand-600);
     text-shadow: none;
 }
 
 .site-nav a.is-active {
-    color: #06b6d4;
+    /* Uses the pink/purple brand color */
+    color: var(--brand-600);
     text-shadow: none;
+}
+
+
+/* 💥 FIX: Mobile collapse and Hamburger menu visibility */
+
+@media (max-width: 900px) {
+    .header-inner {
+        /* Ensures alignment on mobile */
+        align-items: center;
+    }
+    .brand {
+        /* Ensures brand logo and text stay in one line and aligned */
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        /* Tighter gap for mobile */
+    }
+    /* Fix for brand text wrapping on small screens */
+    .brand-text {
+        font-size: 0.8rem;
+        white-space: normal;
+        /* Allow the text to wrap */
+        max-width: 180px;
+        /* Limit the width */
+        line-height: 1.2;
+    }
+    /* HIDE desktop navigation links */
+    .site-nav ul {
+        display: none;
+    }
+    /* SHOW the hamburger menu icon */
+    .menu-toggle {
+        display: flex;
+        flex-shrink: 0;
+        margin-left: auto;
+    }
 }
 
 
@@ -436,6 +494,7 @@ small,
     width: 80px;
     height: 3px;
     margin: 10px auto 0;
+    /* Uses pink/purple brand color */
     background: var(--brand-600);
     border-radius: 2px;
 }
@@ -476,6 +535,7 @@ small,
 }
 
 .person .position {
+    /* Uses pink/purple brand color */
     color: var(--brand-600);
     font-weight: 700;
 }
@@ -578,6 +638,7 @@ small,
 }
 
 .bio-role {
+    /* Uses pink/purple brand color */
     color: var(--brand-600);
     font-weight: 800;
     margin-bottom: 10px;
@@ -786,7 +847,7 @@ small,
      ACCESSIBILITY / FOCUS
      ========================================================= */
 
- :focus-visible {
+:focus-visible {
     outline: 2px solid var(--brand-600);
     outline-offset: 2px;
     border-radius: 4px;
@@ -861,6 +922,7 @@ small,
 .featured-logo:hover {
     opacity: 1;
     transform: scale(1.1);
+    /* Blue glow on logo hover (to match brand name glow) */
     filter: brightness(1.2) drop-shadow(0 0 25px rgba(0, 255, 255, 0.5));
 }
 

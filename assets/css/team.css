@@ -1,9 +1,8 @@
 /* =========================================================
    🔹 DANSA Lab — TEAM PAGE (Final Synchronized Version)
    
-   FIXES: 
-   1. Header gaps and measurements unified.
-   2. FIX: Aggressive reset remains for the active link to attempt to remove the purple box.
+   ✅ FIX: ADDED Z-INDEX to social media links to make them clickable over the stretched-link.
+   ✅ Ensure all other original design elements remain static and correct.
    ========================================================= */
 
 
@@ -90,8 +89,36 @@ body {
     letter-spacing: 0.3px;
     cursor: pointer;
     transition: all 0.35s ease-in-out;
-    text-shadow: none;
+    /* 💥 STATIC BLUE GLOW */
+    text-shadow: 0 1px 1px rgba(0, 255, 255, 0.5), 0 0 15px rgba(0, 255, 255, 0.3);
     white-space: nowrap;
+}
+
+
+/* =========================================================
+   ✅ FIX: REMOVE BORDER/UNDERLINE BUT KEEP TEXT-SHADOW (GLOW)
+   ========================================================= */
+
+
+/* Ensure the brand link itself has no decoration or box-shadow */
+
+.brand,
+.brand:hover,
+.brand:focus {
+    text-decoration: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+
+/* Remove ONLY the border/underline, preserving the text-shadow (glow) above */
+
+.brand-text,
+.brand-text a {
+    border-bottom: none !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
 }
 
 .brand-text strong {
@@ -101,7 +128,14 @@ body {
 .brand-text:hover {
     color: #ffffff;
     transform: scale(1.08);
+    /* Keep the intense hover glow */
     text-shadow: 0 0 8px rgba(0, 255, 255, 0.6), 0 0 16px rgba(0, 255, 255, 0.4), 0 0 24px rgba(0, 255, 255, 0.3);
+}
+
+.brand-text::after {
+    content: none !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
 
@@ -194,10 +228,7 @@ body {
         /* ensures space between text & hamburger */
     }
     .brand {
-        display: flex;
-        align-items: center;
         gap: 0.7rem;
-        /* tighter logo-title spacing */
     }
     .brand-logo {
         height: 48px;
@@ -497,7 +528,16 @@ body {
 }
 
 
-/* ======= Sky Blue Social Buttons ======= */
+/* ======= Social Buttons FIX: Bring above stretched link ======= */
+
+
+/* 1. Set position for the card body to contain z-index */
+
+.member-body {
+    position: relative;
+    z-index: 5;
+    /* Lifts the entire body content above the stretched-link */
+}
 
 .member-social {
     display: flex;
@@ -518,6 +558,10 @@ body {
     box-shadow: 0 0 12px rgba(173, 216, 230, 0.35);
     background: rgba(255, 255, 255, 0.02);
     transition: all 0.25s ease-in-out;
+    /* 2. CRITICAL FIX: Lift the button above the stretched link */
+    position: relative;
+    z-index: 10;
+    /* Ensures the click registers here */
 }
 
 .member-social a:hover {
@@ -560,6 +604,7 @@ body {
     position: absolute;
     inset: 0;
     z-index: 2;
+    /* Stretched link sits below the social buttons (z-index 10) */
     text-decoration: none !important;
     border: none !important;
     outline: none !important;
