@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Data and Network Sciences &amp; Applications Lab</title>
+    <meta name="description" content="The Data and Network Sciences & Applications Lab at the University of Calgary — data mining, social network analysis, data privacy, and bioinformatics." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="images/dansa-logo.png" />
+    <link rel="stylesheet" href="css/theme.css" />
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- ============ HEADER ============ -->
+    <header class="site-header" data-autohide>
+        <div class="header-inner">
+            <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+            <nav class="site-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="index.html#top" class="is-active">Home</a></li>
+                    <li><a href="team.html">Members</a></li>
+                    <li><a href="publication.html">Publications</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="join.html">Join</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+
+        <!-- ============ HERO (masthead: logo + listed nav) ============ -->
+        <section id="top" class="hero">
+            <div class="hero-inner">
+                <p class="hero-tag"><span class="node"></span> University of Calgary · Dept. of Computer Science</p>
+                <div class="hero-masthead">
+                    <h1 class="hero-mark"><img src="images/dansa-logo.png" alt="Data and Network Sciences & Applications Lab" /></h1>
+                    <nav class="hero-nav" aria-label="Primary">
+                        <ul>
+                            <li><a href="index.html#top" class="is-active" aria-current="page"><span>Home</span></a></li>
+                            <li><a href="team.html"><span>Members</span></a></li>
+                            <li><a href="publication.html"><span>Publications</span></a></li>
+                            <li><a href="news.html"><span>News</span></a></li>
+                            <li><a href="join.html"><span>Join</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <a class="scroll-cue" href="#overview" aria-label="Scroll to content">
+                <span>Scroll</span>
+                <span class="arrow" aria-hidden="true">↓</span>
+            </a>
+        </section>
+
+        <!-- ============ FRONT PAGE GRID ============ -->
+        <section id="overview" class="section" aria-label="Overview">
+            <div class="container">
+                <div class="frontpage">
+
+                    <!-- Column 1 — Research -->
+                    <div class="fp-col">
+                        <div class="fp-block reveal">
+                            <header class="fp-head">
+                                <span><span class="fp-kicker">Focus</span><span class="fp-title">Research</span></span>
+                            </header>
+                            <div class="fp-list">
+                                <article class="it"><h4>Data Mining</h4><p>Scalable techniques and structures for managing and mining large, complex data.</p></article>
+                                <article class="it"><h4>Social Network Analysis</h4><p>Modelling relationships, communities, and dynamics across complex networks.</p></article>
+                                <article class="it"><h4>Data Privacy</h4><p>Privacy-preserving methods for sensitive and high-stakes information.</p></article>
+                                <article class="it"><h4>Bioinformatics &amp; Health</h4><p>Computational biology and health-informatics applications of network science.</p></article>
+                                <article class="it"><h4>Big Data Analytics</h4><p>Analytics and learning at scale across heterogeneous data sources.</p></article>
+                                <article class="it"><h4>Machine Learning &amp; LLMs</h4><p>Learning systems and language models applied to real-world decisions.</p></article>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 2 — Live publications -->
+                    <div class="fp-col">
+                        <div class="fp-block reveal">
+                            <header class="fp-head">
+                                <span><span class="fp-kicker">Selected</span><span class="fp-title">Publications</span></span>
+                                <a class="fp-more" href="publication.html">All →</a>
+                            </header>
+                            <div class="pub-meta-bar" data-pub-meta></div>
+                            <ul class="pub-list" data-pubs data-limit="4"></ul>
+                        </div>
+                    </div>
+
+                    <!-- Column 3 — News -->
+                    <div class="fp-col">
+                        <div class="fp-block reveal">
+                            <header class="fp-head">
+                                <span><span class="fp-kicker">Updates</span><span class="fp-title">Recent News</span></span>
+                            </header>
+                            <ul class="news-list" data-news data-limit="5" data-max-age-days="30">
+                                <li class="news-empty">Loading…</li>
+                            </ul>
+                            <a class="fp-allbtn" href="news.html">All news</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ AFFILIATIONS ============ -->
+        <section class="section" aria-label="Affiliations">
+            <div class="container">
+                <p class="affil-label">Affiliated with</p>
+                <div class="affil reveal">
+                    <a href="https://www.ucalgary.ca/" target="_blank" rel="noopener"><img src="images/uni_logo-Photoroom.png" alt="University of Calgary" /></a>
+                    <a href="https://ucalgary.ca/about-ucalgary/our-campuses/main-campus" target="_blank" rel="noopener"><img src="images/brand_camp-Photoroom.png" alt="UCalgary Main Campus" /></a>
+                    <a href="https://science.ucalgary.ca/computer-science" target="_blank" rel="noopener"><img src="images/cs_ucalgary.png" alt="Faculty of Science — Computer Science" /></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <p class="wordmark">DANSA Lab</p>
+                    <p>Data and Network Sciences &amp; Applications Lab — University of Calgary, Department of Computer Science.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html#top">Home</a></li>
+                        <li><a href="team.html">Members</a></li>
+                        <li><a href="publication.html">Publications</a></li>
+                        <li><a href="join.html">Join the lab</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="mailto:alhajj@ucalgary.ca">Email the lab</a></li>
+                        <li><a href="https://dblp.org/pid/78/11148.html" target="_blank" rel="noopener">DBLP</a></li>
+                        <li><a href="https://www.ucalgary.ca/" target="_blank" rel="noopener">University of Calgary</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-base">
+                <span>© <span id="year"></span> DANSA Lab</span>
+                <span><a href="index.html#top">Back to top ↑</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <script defer src="js/app.js"></script>
+    <script defer src="data/publications.js"></script>
+    <script defer src="js/publications.js"></script>
+    <script defer src="js/lib/blogger.js"></script>
+    <script defer src="js/news.js"></script>
+</body>
+
+</html>

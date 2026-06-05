@@ -1,4 +1,4 @@
 {
     "liveServer.settings.port": 5501,
-    "livePreview.defaultPreviewPath": "/team.html"
+    "livePreview.defaultPreviewPath": "/public/team.html"
 }

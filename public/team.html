@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Members — Data and Network Sciences &amp; Applications Lab</title>
+    <meta name="description" content="Members of the Data and Network Sciences & Applications Lab at the University of Calgary." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="images/dansa-logo.png" />
+    <link rel="stylesheet" href="css/theme.css" />
+</head>
+
+<body class="members-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+            <nav class="site-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="index.html#top">Home</a></li>
+                    <li><a href="team.html" class="is-active">Members</a></li>
+                    <li><a href="publication.html">Publications</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="join.html">Join</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="section">
+            <div class="container">
+                <header class="sec-head">
+                    <span class="sec-index">●</span>
+                    <span class="sec-eyebrow">People</span>
+                    <h2 class="sec-title">Lab Members</h2>
+                </header>
+
+                <!-- Rendered by js/members.js from data/members.js -->
+                <div id="members-root">
+                    <p class="pub-loading">Loading members…</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <p class="wordmark">DANSA Lab</p>
+                    <p>Data and Network Sciences &amp; Applications Lab — University of Calgary, Department of Computer Science.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html#top">Home</a></li>
+                        <li><a href="team.html">Members</a></li>
+                        <li><a href="publication.html">Publications</a></li>
+                        <li><a href="join.html">Join the lab</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="mailto:alhajj@ucalgary.ca">Email the lab</a></li>
+                        <li><a href="https://dblp.org/pid/78/11148.html" target="_blank" rel="noopener">DBLP</a></li>
+                        <li><a href="https://www.ucalgary.ca/" target="_blank" rel="noopener">University of Calgary</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-base">
+                <span>© <span id="year"></span> DANSA Lab</span>
+                <span><a href="index.html#top">Back to top ↑</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <script defer src="js/app.js"></script>
+    <script defer src="data/members.js"></script>
+    <script defer src="js/members.js"></script>
+</body>
+
+</html>
